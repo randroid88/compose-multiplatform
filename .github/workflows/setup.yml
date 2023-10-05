@@ -25,16 +25,8 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-
-      - name: Cache Gradle packages
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: setup-gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
       - name: Run
         run: ./gradlew run
