@@ -1,0 +1,21 @@
+name: Setup and Build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  SEGMENT_DOWNLOAD_TIMEOUT_MINS: 3
+
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Composite Action to Setup
+        uses: ./actions/Setup
+
+      - name: Run
+        run: ./gradlew build
