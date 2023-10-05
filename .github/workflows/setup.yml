@@ -36,9 +36,12 @@ jobs:
             ~/.gradle/wrapper
           key: setup-gradle
 
-  build:
-    needs: [ setup ]
-    runs-on: ubuntu-latest
-    steps:
       - name: Run
         run: ./gradlew run
+
+#  build:
+#    needs: [ setup ]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Run
+#        run: ./gradlew run
